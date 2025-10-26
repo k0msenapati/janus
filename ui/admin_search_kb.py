@@ -6,7 +6,7 @@ from core.kb_ops import search_kb
 
 
 TYPE_OPTIONS = ["Any", "Incident", "Request", "Problem", "Change"]
-PRIORITY_OPTIONS = ["Any", "High", "Medium", "Low"]
+PRIORITY_OPTIONS = ["Any", "high", "medium", "low"]
 CATEGORY_OPTIONS = [
     "Any",
     "Technical Support",
