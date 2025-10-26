@@ -49,6 +49,49 @@ Janus automates the lifecycle:
 - [ChromaDB](https://www.trychroma.com/) (Vector DB)
 - [Nebius](https://nebius.com/) (For LLM and Embedding model)
 
+## Architecture
+
+```mermaid
+graph TD
+    subgraph "Streamlit"
+        UI[💻 UI / Portal]
+    end
+
+    subgraph "MindsDB"
+        Classifier[🤖 Ticket Classifier Agent]
+        SupportAgent[🤖 Support Agent]
+        KB["📚 Knowledge Base (tickets_kb)<br><i>Vector DB: ChromaDB</i>"]
+    end
+
+    subgraph "Nebius AI"
+        LLM["🧠 LLM<br>Qwen3-235B-A22B-Thinking-2507"]
+        Embedding["🔍 Embedding Model<br>Qwen3-Embedding-8B"]
+    end
+
+    %% --- Connections ---
+    UI -- "Creates Tickets" --> Classifier
+    UI -- "Interacts with" --> SupportAgent
+    UI -- "Direct Search" --> KB
+    
+    Classifier -- "Uses for Classification" --> LLM
+    SupportAgent -- "Uses for Replies" --> LLM
+
+    Classifier -- "Retrieves Context" --> KB
+    SupportAgent -- "Retrieves Context" --> KB
+    
+    KB -- "Embeddings Created Using" --> Embedding      
+```
+
+### Knowledge Base Schema
+
+Name: `tickets_kb` 
+
+```
+    content_columns = ["subject", "body", "answer"],
+    metadata_columns = ["type", "priority", "category", "tag_1", "tag_2"],
+    id_column = "id"
+```
+
 ## Installation
 
 1. Clone the github repository
