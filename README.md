@@ -142,6 +142,14 @@ source .venv/bin/activate
 streamlit run app.py
 ```
 
+---
+
+## 📖 Read the Blog  
+[**Building Janus: An AI-Powered Helpdesk That Makes Customer Support Smarter →**](https://dev.to/k0msenapati/building-janus-an-ai-powered-helpdesk-that-makes-customer-support-smarter-h6c)
+
+## 🎬 Demo Video  
+[![Watch on YouTube](https://i.ytimg.com/vi/xSJRbmtMBGI/hqdefault.jpg)](https://www.youtube.com/watch?v=xSJRbmtMBGI)
+
 ## Author
 
 Built with 💖 by [k0msenapati](https://github.com/k0msenapati)
